@@ -23,6 +23,7 @@ export type BotId =
   | 'pi'
   | 'guanaco'
   | 'wizardlm'
+  | 'pi'
 
 export function createBotInstance(botId: BotId) {
   switch (botId) {
