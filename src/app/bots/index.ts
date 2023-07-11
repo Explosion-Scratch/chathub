@@ -3,6 +3,7 @@ import { BingWebBot } from './bing'
 import { ChatGPTBot } from './chatgpt'
 import { ClaudeBot } from './claude'
 import { LMSYSBot } from './lmsys'
+import { PiBot } from './pi'
 import { XunfeiBot } from './xunfei'
 import { Claude2Bot } from './claude-2'
 
@@ -22,6 +23,7 @@ export type BotId =
   | 'oasst'
   | 'rwkv'
   | 'claude-2'
+  | 'pi'
 
 export function createBotInstance(botId: BotId) {
   switch (botId) {
@@ -55,6 +57,8 @@ export function createBotInstance(botId: BotId) {
       return new LMSYSBot('RWKV-4-Raven-14B')
     case 'claude-2':
       return new Claude2Bot()
+    case 'pi':
+      return new PiBot()
   }
 }
 
