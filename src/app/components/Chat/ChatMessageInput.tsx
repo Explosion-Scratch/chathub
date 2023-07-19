@@ -92,7 +92,9 @@ const ChatMessageInput: FC<Props> = (props) => {
       handleSelect,
       setIsComboboxOpen: (open: boolean) => {
         setIsComboboxOpen(open)
-        if (!open) {
+        if (open) {
+          trackEvent('open_prompt_combobox')
+        } else {
           inputRef.current?.focus()
         }
       },
