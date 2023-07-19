@@ -65,6 +65,10 @@ export const CHATBOTS: Record<BotId, { name: string; avatar: any }> = {
     name: i18n.t('iFlytek Spark'),
     avatar: xunfeiLogo,
   },
+  stablelm: {
+    name: 'StableLM',
+    avatar: stablelmLogo,
+  },
   oasst: {
     name: 'OpenAssistant',
     avatar: oasstLogo,
