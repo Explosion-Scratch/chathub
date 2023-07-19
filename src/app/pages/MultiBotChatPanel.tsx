@@ -96,7 +96,7 @@ const GeneralChatPanel: FC<{
             botId={chat.botId}
             bot={chat.bot}
             messages={chat.messages}
-            onUserSendMessage={sendSingleMessage}
+            onUserSendMessage={(input) => sendSingleMessage(input, chat.botId)}
             generating={chat.generating}
             stopGenerating={chat.stopGenerating}
             mode="compact"
