@@ -37,17 +37,9 @@ export const CHATBOTS: Record<BotId, { name: string; avatar: any }> = {
     name: 'Claude-2',
     avatar: claudeLogo,
   },
-  xunfei: {
-    name: i18n.t('iFlytek Spark'),
-    avatar: xunfeiLogo,
-  },
-  chatglm: {
-    name: 'ChatGLM',
-    avatar: chatglmLogo,
-  },
-  pi: {
-    name: 'Pi',
-    avatar: piLogo,
+  llama: {
+    name: 'Llama 2',
+    avatar: llamaLogo,
   },
   alpaca: {
     name: 'Alpaca',
@@ -57,6 +49,18 @@ export const CHATBOTS: Record<BotId, { name: string; avatar: any }> = {
     name: 'Vicuna',
     avatar: vicunaLogo,
   },
+  pi: {
+    name: 'Pi',
+    avatar: piLogo,
+  },
+  chatglm: {
+    name: 'ChatGLM',
+    avatar: chatglmLogo,
+  },
+  xunfei: {
+    name: i18n.t('iFlytek Spark'),
+    avatar: xunfeiLogo,
+  },
   koala: {
     name: 'Koala',
     avatar: koalaLogo,
@@ -65,10 +69,7 @@ export const CHATBOTS: Record<BotId, { name: string; avatar: any }> = {
     name: 'Dolly',
     avatar: dollyLogo,
   },
-  llama: {
-    name: 'LLaMA 2',
-    avatar: llamaLogo,
-  },
+
   stablelm: {
     name: 'StableLM',
     avatar: stablelmLogo,
