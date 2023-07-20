@@ -24,6 +24,8 @@ export type BotId =
   | 'guanaco'
   | 'wizardlm'
   | 'pi'
+  | 'guanaco'
+  | 'wizardlm'
 
 export function createBotInstance(botId: BotId) {
   switch (botId) {
@@ -45,8 +47,6 @@ export function createBotInstance(botId: BotId) {
       return new LMSYSBot('chatglm-6b')
     case 'llama':
       return new LMSYSBot('llama-2-13b-chat')
-    case 'stablelm':
-      return new LMSYSBot('stablelm-tuned-alpha-7b')
     case 'oasst':
       return new LMSYSBot('oasst-pythia-12b')
     case 'rwkv':
