@@ -90,6 +90,7 @@
     "remark-parse": "^10.0.2",
     "remark-rehype": "^10.1.0",
     "remark-supersub": "^1.0.0",
+    "rollup-plugin-sourcemaps": "^0.6.3",
     "swr": "^2.1.5",
     "turndown": "^7.1.2",
     "unified": "^10.1.2",

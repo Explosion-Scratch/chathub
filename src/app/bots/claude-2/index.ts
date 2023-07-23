@@ -1,9 +1,19 @@
 import { AbstractBot, SendMessageParams } from '../abstract-bot'
-import Claude2BotAPI from './api'
+import Claude2BotAPI, { Conversation } from './api'
+
+interface MessageStreamChunk {
+  completion: string;
+  stop_reason: string | null;
+  model: string;
+  stop: string;
+  log_id: string;
+  messageLimit: {
+    type: string;
+  };
+}
 
 interface ConversationContext {
-  requestParams: Awaited<ReturnType<typeof fetchRequestParams>>
-  contextIds: [string, string, string]
+  conversation: Conversation
 }
 
 const claude = new Claude2BotAPI();
@@ -13,12 +23,12 @@ export class Claude2Bot extends AbstractBot {
 
   async doSendMessage(params: SendMessageParams) {
     const PARAMS = {
-      progress(a) {
+      progress(a: MessageStreamChunk) {
         if (a.completion) {
           params.onEvent({type: 'UPDATE_ANSWER', data: {text: a.completion}})
         }
       },
-      done(a) {
+      done(a: MessageStreamChunk) {
         if (a.completion) {
           params.onEvent({type: 'UPDATE_ANSWER', data: {text: a.completion}})
         }
@@ -38,12 +48,6 @@ export class Claude2Bot extends AbstractBot {
     }
     const { conversation } = this.conversationContext;
     await claude.sendMessage(params.prompt, {conversation: await claude.getConversation(conversation), ...PARAMS})
-    return;
-    params.onEvent({
-      type: 'UPDATE_ANSWER',
-      data: { text },
-    })
-    params.onEvent({ type: 'DONE' })
   }
 
   resetConversation() {
