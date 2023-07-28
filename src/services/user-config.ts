@@ -65,6 +65,7 @@ const userConfigWithDefaultValue = {
   claudeApiKey: '',
   claudeMode: ClaudeMode.Poe,
   claudeApiModel: ClaudeAPIModel['claude-instant-1'],
+  chatgptWebAccess: false,
 }
 
 export type UserConfig = typeof userConfigWithDefaultValue
