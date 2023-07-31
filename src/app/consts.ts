@@ -17,6 +17,7 @@ import rwkvLogo from '~/assets/rwkv-logo.png'
 import vicunaLogo from '~/assets/vicuna-logo.jpg'
 import wizardlmLogo from '~/assets/wizardlm-logo.png'
 import xunfeiLogo from '~/assets/xunfei-logo.png'
+import stablelmLogo from '~/assets/stablelm-logo.png'
 import { BotId } from './bots'
 import i18n from './i18n'
 
@@ -35,10 +36,6 @@ export const CHATBOTS: Record<BotId, { name: string; avatar: any }> = {
   },
   claude: {
     name: 'Claude',
-    avatar: claudeLogo,
-  },
-  "claude-2": {
-    name: 'Claude-2',
     avatar: claudeLogo,
   },
   llama: {

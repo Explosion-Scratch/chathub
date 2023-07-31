@@ -27,6 +27,7 @@ async function* execute(
   input: string,
   llm: (prompt: string, rawUserInput: string) => AsyncGenerator<string>,
 ): AsyncGenerator<string> {
+  console.log('execute', input)
   let prompt = buildToolUsingPrompt(input)
 
   let outputType: 'tool' | 'answer' | undefined = undefined

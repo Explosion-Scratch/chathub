@@ -24,6 +24,7 @@ export default defineManifest(async (env) => {
       'https://claude.ai/',
       'https://bard.google.com/',
       'https://*.chathub.gg/',
+      'https://*.duckduckgo.com/'
     ],
     optional_host_permissions: ['https://*/*'],
     permissions: ['storage', 'unlimitedStorage', 'sidePanel', 'declarativeNetRequestWithHostAccess'],

@@ -41,7 +41,8 @@ export class ChatGPTBot extends AsyncAbstractBot {
 
   async sendMessage(params: MessageParams) {
     const { chatgptWebAccess } = await getUserConfig()
-    if (chatgptWebAccess) {
+    console.log('Web access:', chatgptWebAccess)
+    if (true) {
       return agent.execute(params.prompt, (prompt) => {
         return this.doSendMessageGenerator({ ...params, prompt })
       })

@@ -12,13 +12,53 @@
         },
         {
           "header": "referer",
+          "operation": "set",
+          "value": "https://duckduckgo.com"
+        },
+        {
+          "header": "referrer",
+          "operation": "set",
+          "value": "https://duckduckgo.com"
+        }
+      ],
+      "responseHeaders": [
+        {
+          "header": "Access-Control-Allow-Origin",
+          "operation": "set",
+          "value": "*"
+        },
+        {
+          "header": "content-security-policy",
+          "operation": "remove"
+        },
+        {
+          "header": "Content-Security-Policy",
           "operation": "remove"
         }
       ]
     },
     "condition": {
-      "requestDomains": ["duckduckgo.com"],
-      "resourceTypes": ["xmlhttprequest"]
+      "requestDomains": [
+        "duckduckgo.com",
+        "html.duckduckgo.com"
+      ],
+      "resourceTypes": [
+        "main_frame",
+        "sub_frame",
+        "stylesheet",
+        "script",
+        "image",
+        "font",
+        "object",
+        "xmlhttprequest",
+        "ping",
+        "csp_report",
+        "media",
+        "websocket",
+        "webtransport",
+        "webbundle",
+        "other"
+      ]
     }
   }
 ]
