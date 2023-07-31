@@ -45,10 +45,6 @@ export const CHATBOTS: Record<BotId, { name: string; avatar: any }> = {
     name: 'Llama 2',
     avatar: llamaLogo,
   },
-  pi: {
-    name: 'Pi',
-    avatar: piLogo,
-  },
   alpaca: {
     name: 'Alpaca',
     avatar: alpacaLogo,
