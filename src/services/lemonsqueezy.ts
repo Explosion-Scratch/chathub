@@ -1,22 +1,13 @@
 import { ofetch } from 'ofetch'
 import * as serverApi from '~services/server-api'
+import { uuid } from '~utils'
 
 async function activateLicense(key: string, instanceName: string) {
-  const resp = await serverApi.activateLicense(key, instanceName)
-  if (!resp.activated) {
-    throw new Error(resp.error)
-  }
-  return resp.instance.id
+  return uuid();
 }
 
 async function deactivateLicense(key: string, instanceId: string) {
-  await ofetch('https://api.lemonsqueezy.com/v1/licenses/deactivate', {
-    method: 'POST',
-    body: {
-      license_key: key,
-      instance_id: instanceId,
-    },
-  })
+  return console.log("Deactivate license", { key, instanceId })
 }
 
 type LicenseKey = {
@@ -24,14 +15,8 @@ type LicenseKey = {
 }
 
 async function validateLicense(key: string, instanceId: string): Promise<LicenseKey> {
-  const resp = await ofetch('https://api.lemonsqueezy.com/v1/licenses/validate', {
-    method: 'POST',
-    body: {
-      license_key: key,
-      instance_id: instanceId,
-    },
-  })
-  return { valid: resp.valid }
+  console.log("Spoof validate", { key, instanceId})
+  return { valid: true }
 }
 
 export { activateLicense, deactivateLicense, validateLicense }

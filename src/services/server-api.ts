@@ -1,4 +1,5 @@
 import { ofetch } from 'ofetch'
+import { uuid } from '~utils'
 
 export async function decodePoeFormkey(headHtml: string): Promise<string> {
   const resp = await ofetch('https://chathub.gg/api/poe/decode-formkey', {
@@ -10,20 +11,18 @@ export async function decodePoeFormkey(headHtml: string): Promise<string> {
 
 type ActivateResponse =
   | {
-      activated: true
-      instance: { id: string }
-      meta: { product_id: number }
-    }
+    activated: true
+    instance: { id: string }
+    meta: { product_id: number }
+  }
   | { activated: false; error: string }
 
 export async function activateLicense(key: string, instanceName: string) {
-  return ofetch<ActivateResponse>('https://chathub.gg/api/premium/activate', {
-    method: 'POST',
-    body: {
-      license_key: key,
-      instance_name: instanceName,
-    },
-  })
+  return {
+    activated: true,
+    instance: { id: uuid() },
+    meta: { product_id: 1 },
+  }
 }
 
 interface Product {
@@ -31,5 +30,5 @@ interface Product {
 }
 
 export async function fetchPremiumProduct() {
-  return ofetch<Product>('https://chathub.gg/api/premium/product')
+  return { price: 0 }
 }
